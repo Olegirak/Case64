@@ -12,16 +12,17 @@ int GetDataFromUser(string message)
     Console.ResetColor();
     return result;
 }
-string RecNatNum(int n, string res)
+string RecNatNum(int n)
 {
+    string res = string.Empty;
     if (n > 0)
     {
-        res = n + ", " + RecNatNum(n - 1, res);
+        res = n + ", " + RecNatNum(n - 1);
     }
     return res;
 }
 int x = GetDataFromUser("Введите число N");
-string res = string.Empty;
-res = RecNatNum(x, res);
-res = '"' + res[..^2] + '"';
-Console.WriteLine(res);
+
+string result = RecNatNum(x);
+result = '"' + result[..^2] + '"';
+Console.WriteLine(result);
